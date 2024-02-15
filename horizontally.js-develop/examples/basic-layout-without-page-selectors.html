@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Horizontally.js Basic Example</title>
+
+        <!-- Include horizontally.css file -->
+        <link rel="stylesheet" href="../dist/horizontally.min.css" />
+
+        <style>
+            /* Add background color for each section */
+            .section:nth-child(1) {
+                background: #2196f3;
+            }
+
+            .section:nth-child(2) {
+                background: #4caf50;
+            }
+
+            .section:nth-child(3) {
+                background: #ffc107;
+            }
+
+            /* Other styles to center page text */
+            .section {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                font-size: 2em;
+                font-family: sans-serif;
+                font-weight: 600;
+                color: rgb(54 71 74 / 91%);
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Add HTML layout -->
+        <div id="horizontally">
+            <div class="section"><span>Page 1</span></div>
+            <div class="section"><span>Page 2</span></div>
+            <div class="section"><span>Page 3</span></div>
+        </div>
+
+        <!-- Include horizontally.js file -->
+        <script src="../dist/horizontally.min.js"></script>
+
+        <script>
+            /* Initialize project with options */
+            new horizontally({
+                wrapper: "#horizontally",
+                speed: 1000,
+                arrowButtons: true,
+                pageSelector: false,
+            });
+        </script>
+    </body>
+</html>
