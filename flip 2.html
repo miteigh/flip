@@ -16,7 +16,7 @@
             }
 
             .section:nth-child(2) {
-                background: #4caf50;
+                background: #7f2cdf;
             }
 
             .section:nth-child(3) {
@@ -29,17 +29,18 @@
                 align-items: center;
                 justify-content: center;
 
-                font-size: 2em;
+                font-size: 2rem;
                 font-family: sans-serif;
                 font-weight: 600;
-                color: rgb(54 71 74 / 91%);
+                color: rgba(0, 0, 0, 0.91);
             }
         </style>
     </head>
     <body>
         <!-- Add HTML layout -->
         <div id="horizontally">
-            <div class="section"><main>
+            <div class="section">
+                <main>
                 <div class="title"><p class="st">1.Who am I</p></div>
                 <div class="cardpack">
                 <div class="card" onclick="flipCard(this)">
@@ -48,6 +49,7 @@
                              <div class="Point">3 Point</div>
                         </div>
                         <div class="card-back">
+                            <p style="position: absolute;top: 0;">3 Point</p>
                             <div>I have a uniform.</div>
                         </div>
                     </div>
@@ -59,6 +61,7 @@
                             <div class="Point">2 Point</div>
                         </div>
                         <div class="card-back">
+                            <p style="position: absolute;top: 0;">2 Point</p>
                             <div>I treat sick people.</div>
                         </div>
                     </div>
@@ -70,7 +73,8 @@
                             <div class="Point">1 Point</div>
                         </div>
                         <div class="card-back">
-                            <div>I work at the hospital.</div>
+                            <p style="position: absolute;top: 0;">1 Point</p>
+                            <p>I work at the hospital.</p>
                         </div>
                     </div>
                 </div>
@@ -89,9 +93,116 @@
                         </div>
                     </div>
                 </div>
+            </main>
+            </div>
+            <div class="section"><main>
+                <div class="title"><p class="st">1.Who am I</p></div>
+                <div class="cardpack">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                             <div class="Point">3 Point</div>
+                        </div>
+                        <div class="card-back">
+                            <p style="position: absolute;top: 0;">3 Point</p>
+                            <div>I create the menus and prepare the food.</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="Point">2 Point</div>
+                        </div>
+                        <div class="card-back">
+                            <p style="position: absolute;top: 0;">2 Point</p>
+                            <div>I like to cook food.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="Point">1 Point</div>
+                        </div>
+                        <div class="card-back">
+                            <p style="position: absolute;top: 0;">1 Point</p>
+                            <p>I work in the kitchen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- cardpack -->
+        
+                <div class="ans"> <!-- answer -->
+                    <div class="ans-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="ans-card-front">
+                                <div class="Point">Answer</div>
+                            </div>
+                            <div class="ans-card-back">
+                                    <p class="float">Chef</p>
+                                    <div><img src="https://www.freepnglogos.com/uploads/chef-png/png-psd-download-chef-cook-vector-illustration-14.png" alt="Doctor"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main></div>
-            <div class="section"><span>Page 2</span></div>
-            <div class="section"><span>Page 3</span></div>
+            <div class="section"><main>
+                <div class="title"><p class="st">1.Who am I</p></div>
+                <div class="cardpack">
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                             <div class="Point">3 Point</div>
+                        </div>
+                        <div class="card-back">
+                            <p style="position: absolute;top: 0;">3 Point</p>
+                            <div>I have a uniform.</div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="Point">2 Point</div>
+                        </div>
+                        <div class="card-back">
+                            <p style="position: absolute;top: 0;">2 Point</p>
+                            <div>I drive a truck.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" onclick="flipCard(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="Point">1 Point</div>
+                        </div>
+                        <div class="card-back">
+                            <p style="position: absolute;top: 0;">1 Point</p>
+                            <p>I protect people from fire.</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- cardpack -->
+        
+                <div class="ans"> <!-- answer -->
+                    <div class="ans-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="ans-card-front">
+                                <div class="Point">Answer</div>
+                            </div>
+                            <div class="ans-card-back">
+                                    <p class="float" style="left: -110px; color: #222;">Fire Fighter</p>
+                                    <div><img src="https://png.pngtree.com/png-clipart/20211102/original/pngtree-cute-cartoon-fireman-illustrations-png-image_6914773.png" alt="Doctor"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main></div>
         </div>
 
         <!-- Include horizontally.js file -->
