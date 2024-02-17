@@ -18,15 +18,17 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+
     .st {
         margin: 0;
     }
 }
+
 .cardpack {
     width: 90%;
     height: 90%;
     display: flex;
-    justify-content: center;   
+    justify-content: center;
     gap: 40px;
     margin: 2rem 0;
 }
@@ -57,6 +59,7 @@ main {
     position: absolute;
     backface-visibility: hidden;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .card-front {
@@ -110,6 +113,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .ans-card-back {
@@ -119,6 +123,7 @@ main {
     justify-content: center;
     align-items: center;
     margin: 45px 0;
+
     .float {
         position: absolute;
         margin: 0;
@@ -130,4 +135,43 @@ main {
 
 img {
     width: 240px;
+}
+
+/* ----------- Moto 360 Watch ----------- */
+@media (max-device-width: 1024px) and (max-device-height: 768px) {
+    
+    .section {
+        font-size: 1.7rem;
+    }
+
+    .title {
+        font-size: ;
+    }
+
+    main {
+        margin: 1rem;
+        margin-bottom: 6rem;
+    }
+
+    img {
+        width: 200px;
+    }
+
+    .card {
+        width: 225px;
+        height: 300px;
+        perspective: 1000px;
+        cursor: pointer;
+    }
+
+    .card-front,
+    .card-back {
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        position: absolute;
+        backface-visibility: hidden;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
 }
