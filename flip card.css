@@ -138,8 +138,7 @@ img {
 }
 
 /* ----------- Moto 360 Watch ----------- */
-@media (max-device-width: 1024px) and (max-device-height: 768px) {
-    
+@media only screen and (min-device-width: 810px) and (max-device-width: 1080px) and (-webkit-min-device-pixel-ratio: 2) {
     .section {
         font-size: 1.7rem;
     }
