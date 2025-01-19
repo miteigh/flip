@@ -14,15 +14,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping structure for table mighty_db.tb_major
-CREATE TABLE IF NOT EXISTS `tb_major` (
-  `mid` varchar(5) NOT NULL,
-  `mname` varchar(255) DEFAULT NULL,
-  `mfact` varchar(10) DEFAULT NULL,
-  `mstatus` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`mid`),
-  KEY `FK_tb_major_tb_faculty` (`mfact`),
-  CONSTRAINT `FK_tb_major_tb_faculty` FOREIGN KEY (`mfact`) REFERENCES `tb_faculty` (`FID`) ON UPDATE CASCADE
+-- Dumping structure for table mighty_db.tb_faculty
+CREATE TABLE IF NOT EXISTS `tb_faculty` (
+  `FID` varchar(10) NOT NULL,
+  `Fname` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`FID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- Data exporting was unselected.
