@@ -16,13 +16,14 @@
 
 -- Dumping structure for table mighty_db.tb_student
 CREATE TABLE IF NOT EXISTS `tb_student` (
-  `stuid` varchar(11) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `stuid` varchar(14) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `pname` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `firstname` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `tel` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `major` varchar(10) DEFAULT NULL,
+  `stu_pic` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`stuid`) USING BTREE,
   KEY `FK_tb_student_tb_major` (`major`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
