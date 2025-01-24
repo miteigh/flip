@@ -1,7 +1,7 @@
 <?php 
     require_once "config.php";
     session_start();
-    // var_dump($_POST);
+
     // Function to check if a username exists
     function check_user_exists($conn, $stuid)
     {
@@ -11,7 +11,7 @@
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    // ฟังก์ชันสำหรับการตรวจสอบอีเมล
+    // // ฟังก์ชันสำหรับการตรวจสอบอีเมล
     function is_email_valid($email) {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
@@ -20,8 +20,8 @@
         //รับค่าจากฟอร์ม
         $stuid = $_POST['stuid'];
         $pname = filter_input(INPUT_POST, 'pname');
-        $firstname = filter_input(INPUT_POST, 'fname');
-        $lastname = filter_input(INPUT_POST, 'lname');
+        $firstname = filter_input(INPUT_POST, 'firstname');
+        $lastname = filter_input(INPUT_POST, 'lastname');
         $email = htmlspecialchars($_POST['email']);
         $tel = htmlspecialchars($_POST['tel']);
         $major = htmlspecialchars($_POST['major']);
@@ -158,5 +158,4 @@
         header("location: index.php");
         exit();
     }    
-    
 ?>

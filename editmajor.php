@@ -80,6 +80,9 @@ session_start();
         <div class="row mb-4 d-flex justify-content-center">
             <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 mb-3">
                 <div class="card">
+                    <div class="p-2 pb-0">
+                        <?php include "breadcrumb.php" ?>
+                    </div>
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" id="addmajor">
                         <h6 class="m-0 font-weight-bold text-primary">ระบบเพิ่มสาขาวิชา</h6>
                     </div>
