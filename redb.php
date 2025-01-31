@@ -72,14 +72,14 @@
         exit();
     }
 
-    // เพิ่มสาขาวิชา
+    // Add Major Functionality
     if (isset($_POST['addmajor'])) {
         // รับค่าจากฟอร์ม
         $fid = filter_input(INPUT_POST, 'fid');
         $mid = filter_input(INPUT_POST, 'mid');
         $mname = htmlspecialchars($_POST['mname']);
         $mstatus = htmlspecialchars($_POST['mstatus']);
-         
+    
         if (empty($fid)) {
             $_SESSION['error_addmajor'] = 'กรุณากรอกรหัสคณะ';
         } else {
@@ -91,20 +91,20 @@
                     $newFacultyCode = htmlspecialchars($_POST['newFacultyCode']); // รหัสคณะใหม่
     
                     // ตรวจสอบว่าคณะใหม่มีอยู่ในฐานข้อมูลหรือยัง
-                    $stmt_check_faculty = $conn->prepare("SELECT * FROM tb_faculty WHERE FID = :fid");
-                    $stmt_check_faculty->bindParam(":fid", $newFacultyCode);
+                    $stmt_check_faculty = $conn->prepare("SELECT * FROM tb_faculty WHERE FID = ?");
+                    $stmt_check_faculty->bind_param("s", $newFacultyCode);
                     $stmt_check_faculty->execute();
-                    $facultyExists = $stmt_check_faculty->fetch();
-
+                    $result_check_faculty = $stmt_check_faculty->get_result();
+                    $facultyExists = $result_check_faculty->fetch_assoc();
+    
                     if ($facultyExists) {
                         $_SESSION['info'] = "คณะนี้มีอยู่ในระบบแล้ว";
                         $fid = $newFacultyCode; // ใช้รหัสคณะใหม่
                         $fname = $newFacultyName; // ใช้ชื่อคณะใหม่
                     } else {
                         // เพิ่มคณะใหม่ในระบบ
-                        $stmt1 = $conn->prepare("INSERT INTO tb_faculty (FID, Fname) VALUES(:fid, :fname)");
-                        $stmt1->bindParam(":fid", $newFacultyCode);
-                        $stmt1->bindParam(":fname", $newFacultyName);
+                        $stmt1 = $conn->prepare("INSERT INTO tb_faculty (FID, Fname) VALUES(?, ?)");
+                        $stmt1->bind_param("ss", $newFacultyCode, $newFacultyName);
                         $stmt1->execute();
     
                         // ใช้ข้อมูลคณะใหม่
@@ -112,46 +112,35 @@
                         $fname = $newFacultyName;
                     }
                 }
-                
+    
                 // ตรวจสอบว่าสาขาวิชามีอยู่ในระบบหรือไม่
-                $stmt_check_major = $conn->prepare("SELECT * FROM tb_major WHERE MID = :mid");
-                $stmt_check_major->bindParam(":mid", $mid);
+                $stmt_check_major = $conn->prepare("SELECT * FROM tb_major WHERE MID = ?");
+                $stmt_check_major->bind_param("s", $mid);
                 $stmt_check_major->execute();
-                $major = $stmt_check_major->fetch();
+                $result_check_major = $stmt_check_major->get_result();
+                $major = $result_check_major->fetch_assoc();
     
                 if ($major) {
                     $_SESSION['warning_addmajor'] = "มีสาขาวิชานี้อยู่ในระบบแล้ว";
-                    // header("location: editmajor.php");
-                    header("location: index.php");
+                    header("location: em.php");
                     exit();
                 } else {
-                    try {
-                        
-                        // เพิ่มข้อมูลสาขาวิชา
-                        $stmt2 = $conn->prepare("INSERT INTO tb_major (MID, Mname, Mstatus, mfact) 
-                                                VALUES(:mid, :mname, :mstatus, :fid)");
-                        $stmt2->bindParam(":mid", $mid);
-                        $stmt2->bindParam(":mname", $mname);
-                        $stmt2->bindParam(":mstatus", $mstatus);
-                        $stmt2->bindParam(":fid", $fid);
-                        $stmt2->execute();
-        
-                        $_SESSION['success_addmajor'] = "เพิ่มข้อมูลสาขาวิชาเรียบร้อยแล้ว!";
-                        // header("location: editmajor.php#addmajor");
-                        header("location: index.php");
-                        exit();
-
-                    } catch (PDOException $e) {
-                        $_SESSION['error_addmajor'] = 'มีบางอย่างผิดพลาด: ' . $e->getMessage();
-                    }
-                } 
+                    // เพิ่มข้อมูลสาขาวิชา
+                    $stmt2 = $conn->prepare("INSERT INTO tb_major (MID, Mname, Mstatus, mfact) 
+                                            VALUES(?, ?, ?, ?)");
+                    $stmt2->bind_param("ssss", $mid, $mname, $mstatus, $fid);
+                    $stmt2->execute();
     
-            } catch (PDOException $e) {
+                    $_SESSION['success_addmajor'] = "เพิ่มข้อมูลสาขาวิชาเรียบร้อยแล้ว!";
+                    header("location: em.php");
+                    exit();
+                }
+    
+            } catch (mysqli_sql_exception $e) {
                 $_SESSION['error_addmajor'] = 'มีบางอย่างผิดพลาด: ' . $e->getMessage();
             }
         }
-        // header("location: editmajor.php#addmajor");
-        header("location: index.php");
+        header("location: em.php");
         exit();
-    }    
+    }      
 ?>
